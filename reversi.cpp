@@ -252,15 +252,11 @@ int main(int argc, char *argv[]) {
     }
     // SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
-    if (isPlayer1Turn) {
-      SDL_RenderDebugTextFormat(renderer, 10, 405,
-                                "Player Turn: %s Attempt: %d/3",
-                                player1.c_str(), attempts + 1);
-    } else {
-      SDL_RenderDebugTextFormat(renderer, 10, 405,
-                                "Reversi Game! Player Turn: %s Attempt: %d/3",
-                                player2.c_str(), attempts + 1);
-    }
+
+    SDL_RenderDebugTextFormat(
+        renderer, 10, 405, "Player Turn: %s Attempt: %d/3",
+        isPlayer1Turn ? player1.c_str() : player2.c_str(), attempts + 1);
+
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
     // SDL_RenderTexture(renderer, texture, NULL, NULL);
